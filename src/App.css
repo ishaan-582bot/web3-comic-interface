@@ -1,0 +1,297 @@
+/* App-specific styles */
+
+/* Smooth scrolling for the main content */
+main > div {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for content areas */
+main ::-webkit-scrollbar {
+  width: 6px;
+}
+
+main ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+main ::-webkit-scrollbar-thumb {
+  background: #2A2A3E;
+  border-radius: 3px;
+}
+
+main ::-webkit-scrollbar-thumb:hover {
+  background: #3A3A4E;
+}
+
+/* Page content container */
+.page-content {
+  min-height: 100%;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .page-content {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-content {
+    padding: 3rem;
+  }
+}
+
+/* Comic book page styling */
+.comic-page {
+  position: relative;
+  background: linear-gradient(135deg, #1A1A2E 0%, #0A0A0F 100%);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.comic-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Speech bubble styling */
+.speech-bubble-comic {
+  position: relative;
+  background: white;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  color: black;
+  font-weight: 500;
+}
+
+.speech-bubble-comic::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  border-width: 15px 15px 0;
+  border-style: solid;
+  border-color: black transparent transparent;
+}
+
+.speech-bubble-comic::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 33px;
+  border-width: 12px 12px 0;
+  border-style: solid;
+  border-color: white transparent transparent;
+  z-index: 1;
+}
+
+/* Thought bubble */
+.thought-bubble {
+  position: relative;
+  background: white;
+  border: 3px solid black;
+  border-radius: 50%;
+  padding: 1.5rem;
+  color: black;
+}
+
+.thought-bubble::before,
+.thought-bubble::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.thought-bubble::before {
+  width: 20px;
+  height: 20px;
+  bottom: -15px;
+  left: 20px;
+}
+
+.thought-bubble::after {
+  width: 10px;
+  height: 10px;
+  bottom: -25px;
+  left: 10px;
+  border-width: 1px;
+}
+
+/* Action button styling */
+.action-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #00F0FF 0%, #00C8FF 100%);
+  color: #0A0A0F;
+  font-weight: 700;
+  border-radius: 12px;
+  border: 3px solid black;
+  box-shadow: 4px 4px 0 black;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 black;
+}
+
+.action-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 black;
+}
+
+/* Secondary action button */
+.action-button-secondary {
+  background: transparent;
+  color: #00F0FF;
+  border-color: #00F0FF;
+  box-shadow: 4px 4px 0 #00F0FF;
+}
+
+.action-button-secondary:hover {
+  box-shadow: 6px 6px 0 #00F0FF;
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.2);
+}
+
+/* 3D Card effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+/* Progress bar animation */
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+}
+
+.progress-animated {
+  animation: progress-fill 1s ease-out forwards;
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Loading spinner */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #F7931A 0%, #00F0FF 50%, #B829DD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .comic-page {
+    border-radius: 12px;
+  }
+  
+  .speech-bubble-comic {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .action-button {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
