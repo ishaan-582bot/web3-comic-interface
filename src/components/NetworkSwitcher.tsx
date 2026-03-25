@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AlertCircle, Switch } from 'lucide-react';
+import { AlertCircle, ArrowLeftRight as Switch } from 'lucide-react';
 import { useChainId, useSwitchChain } from 'wagmi';
 import { REQUIRED_CHAIN } from '../lib/wagmi';
 import { cn } from '../lib/utils';
